@@ -1,0 +1,13 @@
+1.select employee_first_name from employee_details_table where employee_id in (select employee_id from employee_salary_table where employee_salary > 50000);
+
+2.select employee_last_name from employee_details_table where graduation_percentile > '70';
+
+3.select employee_code_name from employee_code_table where employee_code in (select employee_code from employee_salary_table where employee_id in (select employee_id from employee_details_table where graduation_percentile < '70')) ;
+
+4.select concat(employee_first_name,' ',employee_last_name) as 'Full_name' from employee_details_table where employee_id in (select employee_id from employee_salary_table where employee_code in (select employee_code from employee_code_table where employee_domain <>  'JAVA'));
+
+5.select employee_domain , sum(employee_salary) from employee_code_table inner join employee_salary_table on employee_code_table.employee_code = employee_salary_table.employee_code group by employee_domain;
+
+6.select employee_domain , sum(employee_salary) from employee_code_table inner join employee_salary_table on employee_code_table.employee_code = employee_salary_table.employee_code where employee_salary >30000 group by employee_domain;
+
+7.select employee_id from employee_salary_table where employee_salary_table.employee_code = NULL ;

@@ -1,0 +1,6 @@
+creds.php
+index.php
+connect.php
+vendor/
+composer.lock
+composer.json
