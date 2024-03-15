@@ -36,6 +36,7 @@ $conn = new mysqli(
 
     $query = "INSERT INTO employee_details_table VALUES('$id', '$firstName', '$lastName', '$percentile')";
     mysqli_query($conn, $query);
-    echo "Form submitted successfully !!";
+    ?>
+    <p>Form submitted successfully !!</p>
+    <?php
   }
-    

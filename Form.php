@@ -6,6 +6,7 @@
   <title>Details Entry</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="container">
     <form action="data.php" method="post">
@@ -14,22 +15,22 @@
       <input type="text" name="firstName">
       
       
-      <label for="firstName">Employee Lastname</label>
+      <label for="lastName">Employee Lastname</label>
       <input type="text" name="lastName">
       
-      <label for="firstName">Employee Code Name</label>
+      <label for="codeName">Employee Code Name</label>
       <input type="text" name="codeName">
 
-      <label for="firstName">Employee ID</label>
+      <label for="id">Employee ID</label>
       <input type="text" name="id">
       
-      <label for="firstName">Employee Domain</label>
+      <label for="domain">Employee Domain</label>
       <input type="text" name="domain">
       
-      <label for="firstName">Employee Salary</label>
+      <label for="salary">Employee Salary</label>
       <input type="text" name="salary">
       
-      <label for="firstName">Graduation Percentile</label>
+      <label for="percentile">Graduation Percentile</label>
       <input type="text" name="percentile">
 
       <input type="submit" value="Submit">
