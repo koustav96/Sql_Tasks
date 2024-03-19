@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if (isset($_SESSION["data"])) {
+  header("location: homepage.php");
+  exit();
+}
+
 include("connect.php");
 
 $token = $_GET["token"];

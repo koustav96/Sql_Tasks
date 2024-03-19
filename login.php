@@ -9,11 +9,14 @@ include("connect.php");
 if($_SERVER['REQUEST_METHOD'] == "POST") {
   $mailId = $_POST['mailId'];
   $password = $_POST['password'];
+
   if(!empty($mailId) && !empty($password)) {
     $query = "select * from Signup  where mail_id = '$mailId' ";
     $result = mysqli_query($conn, $query);
+
     if($result) {
       $userData = mysqli_fetch_assoc($result);
+      
       if(password_verify($password, $userData['password'])) {
         $_SESSION["data"] = $mailId;
         header('location: homepage.php');

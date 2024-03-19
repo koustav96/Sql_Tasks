@@ -8,7 +8,8 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 /**
- * This function used to send email to given recipient with given subject and message.
+ * This function is used to send email to given recipient with given subject
+ *  and message.
  *
  * @param  string $recipientEmail
  *  Recipient's email address.
@@ -47,6 +48,37 @@ function send_email (string $recipientEmail, string $token_hash): void {
     ?>
     <script type='text/javascript'> alert ('Reset link is sent to your mailid !!')</script>
     <?php
+  } 
+  catch (Exception $e) {
+    ?>
+    <script type='text/javascript'> alert ('Mail could not be sent. Mailer Error: {$mail->ErrorInfo}')</script>
+    <?php
+  }
+}
+
+function send_otp (string $recipientEmail, string $otp): void {
+  require "cred.php";
+  $mail = new PHPMailer(true);
+  try {
+    // Setting up server settings.
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Username = $senderEmail;
+    $mail->Password = $senderPassword;
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    $mail->setFrom($senderEmail);
+    $mail->addAddress($recipientEmail);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Validate OTP';
+
+    $mail->Body =  "Your OTP is $otp.";
+
+    $mail->send();
   } 
   catch (Exception $e) {
     ?>
