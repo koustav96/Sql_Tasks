@@ -1,8 +1,17 @@
 <?php
 
-require 'creds.php';
+require 'vendor/autoload.php';
+use Dotenv\Dotenv;  
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$servername = $_ENV['servername'];
+$username = $_ENV['username'];
+$password = $_ENV['password'];
+$dbname = $_ENV['dbname'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
   $firstName = $_POST['firstName'];
   $lastName = $_POST['lastName'];
   $codeName = $_POST['codeName'];
@@ -13,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $empCode = 'su_' . strtolower($firstName);
   
 }
-global $servername, $username, $password, $dbname;
 $conn = new mysqli(
     $servername,
     $username,

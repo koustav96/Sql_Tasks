@@ -33,7 +33,7 @@
       <label for="percentile">Graduation Percentile</label>
       <input type="text" name="percentile">
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" name="submit">
     </form>
   </div>
 </body>
