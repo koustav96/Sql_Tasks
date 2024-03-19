@@ -1,0 +1,5 @@
+cred.php
+vendor/
+uploads/
+docs/
+.env
